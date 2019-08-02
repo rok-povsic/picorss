@@ -2,6 +2,13 @@
 
 **picoRSS** is a fast and simple RSS reader.
 
+## Setup
+
+Python version 3.7. is needed. Virtualenv is recommended.
+
+1. `pip install -r requirements.txt`
+2. `alembic upgrade head`
+
 ## Architecture
 
 The main point of this project is its architecture which is using the Clean Architecture approach 
