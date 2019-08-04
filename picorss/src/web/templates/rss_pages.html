@@ -1,0 +1,15 @@
+<html>
+<body>
+  <h1>Add</h1>
+  <form action="/rss_pages/add" method="POST">
+    <input name="url" />
+    <button type="submit">Add</button>
+  </form>
+  <h1>Pages</h1>
+  <ul>
+    {% for rss_page in rss_pages %}
+    <li>{{ rss_page.url }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

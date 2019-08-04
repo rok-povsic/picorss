@@ -1,6 +1,7 @@
 alembic==1.0.11
 attrs==19.1.0
 flake8==3.7.8
+flask==1.1.1
 freezegun==0.3.12
 inject==3.5.3
 mypy==0.720
