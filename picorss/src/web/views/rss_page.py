@@ -14,6 +14,13 @@ def index() -> str:
     return flask.render_template("rss_pages.html", rss_pages=result.rss_pages)
 
 
+@bp.route("/rss_pages/<int:page_id>", methods=["GET"])
+def show(page_id: int):
+    query = inject.instance(queries.GettingRssPageQuery)
+    rss_page = query.execute(page_id)
+    return flask.render_template("rss_page.html", rss_page=rss_page)
+
+
 @bp.route("/rss_pages/add", methods=["POST"])
 def add() -> str:
     use_cases.AddingRssPageUseCase().execute(

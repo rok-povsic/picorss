@@ -8,7 +8,7 @@
   <h1>Pages</h1>
   <ul>
     {% for rss_page in rss_pages %}
-    <li>{{ rss_page.url }}</li>
+    <li>{{ rss_page.url }} - <a href="/rss_pages/{{rss_page.id}}">#</a></li>
     {% endfor %}
   </ul>
 </body>

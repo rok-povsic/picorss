@@ -1,1 +1,3 @@
-from picorss.src.infrastructure.queries.rss_pages import ORMGettingRssPagesQuery
+from picorss.src.infrastructure.queries.rss_pages import (
+    ORMGettingRssPageQuery, ORMGettingRssPagesQuery
+)

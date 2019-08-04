@@ -7,9 +7,12 @@ class GettingRssPageQuery(metaclass=abc.ABCMeta):
 
     @attr.s
     class OutputDto:
+        id: int = attr.ib()
         url: str = attr.ib()
 
-    # TODO: Implement single RSS page query.
+    @abc.abstractmethod
+    def execute(self, page_id: int) -> OutputDto:
+        pass
 
 
 class GettingRssPagesQuery(metaclass=abc.ABCMeta):
