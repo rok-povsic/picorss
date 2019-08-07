@@ -3,6 +3,8 @@ from sqlalchemy import orm
 from picorss.src.application import queries
 from picorss.src.infrastructure import models
 
+import feedparser
+
 
 class ORMGettingRssPageQuery(queries.GettingRssPageQuery):
     def __init__(self, session: orm.Session):

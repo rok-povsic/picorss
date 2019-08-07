@@ -15,10 +15,30 @@ def index() -> str:
 
 
 @bp.route("/rss_pages/<int:page_id>", methods=["GET"])
-def show(page_id: int):
+def show_page(page_id: int):
     query = inject.instance(queries.GettingRssPageQuery)
     rss_page = query.execute(page_id)
-    return flask.render_template("rss_page.html", rss_page=rss_page)
+
+    import feedparser
+    data = feedparser.parse(rss_page.url)
+    titles = [(article_id, e["title"]) for article_id, e in enumerate(data["entries"])]
+
+    return flask.render_template("rss_page.html", rss_page=rss_page, titles=titles)
+
+
+@bp.route("/rss_pages/<int:page_id>/article/<int:article_relative>", methods=["GET"])
+def show_single_post(page_id: int, article_relative: int):
+    query = inject.instance(queries.GettingRssPageQuery)
+    rss_page = query.execute(page_id)
+
+    import feedparser
+    data = feedparser.parse(rss_page.url)
+
+    article = data["entries"][article_relative]
+    title = article["title"]
+    text = flask.Markup(article["content"][0]["value"])
+
+    return flask.render_template("single_post.html", rss_page=rss_page, title=title, text=text)
 
 
 @bp.route("/rss_pages/add", methods=["POST"])
