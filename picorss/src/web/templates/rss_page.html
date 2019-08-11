@@ -4,7 +4,7 @@
 <h1>Page: {{ rss_page.url }}</h1>
 <ul>
   {% for article_id, title in titles %}
-  <li>{{ title }} - <a href="/rss_pages/{{rss_page.id}}/article/{{article_id}}">#</a></li>
+  <li><a href="/rss_pages/{{rss_page.id}}/article/{{article_id}}">{{ title }}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}

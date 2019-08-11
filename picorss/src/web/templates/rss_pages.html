@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block article %}
-<h1>Add</h1>
+<h2>Add new RSS page</h2>
 <form action="/rss_pages/add" method="POST">
   <input name="url" type="text" />
   <button type="submit">Add</button>
 </form>
-<h1>Pages</h1>
+<h2>Pages</h2>
 <ul>
   {% for rss_page in rss_pages %}
-  <li>{{ rss_page.url }} - <a href="/rss_pages/{{rss_page.id}}">#</a></li>
+  <li><a href="/rss_pages/{{rss_page.id}}">{{ rss_page.url }}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}
