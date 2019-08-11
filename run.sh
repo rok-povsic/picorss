@@ -1,0 +1,1 @@
+FLASK_APP=picorss/src/web/setup_flask.py FLASK_ENV=development flask run
