@@ -1,15 +1,10 @@
-<html>
-<body>
-  <h1>Add</h1>
-  <form action="/rss_pages/add" method="POST">
-    <input name="url" />
-    <button type="submit">Add</button>
-  </form>
-  <h1>Page: {{ rss_page.url }}</h1>
-  <ul>
-    {% for article_id, title in titles %}
-    <li>{{ title }} - <a href="/rss_pages/{{rss_page.id}}/article/{{article_id}}">#</a></li>
-    {% endfor %}
-  </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block article %}
+<h1>Page: {{ rss_page.url }}</h1>
+<ul>
+  {% for article_id, title in titles %}
+  <li>{{ title }} - <a href="/rss_pages/{{rss_page.id}}/article/{{article_id}}">#</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
